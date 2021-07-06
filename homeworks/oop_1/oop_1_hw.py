@@ -150,13 +150,12 @@ print(x1 + x2)
 # __call__ method and define this call to return sum.
 class ReturnSum:
     def __call__(self, *args):
-        summa = 0
-        summa = sum(args)
-        return summa
+        return sum(args)
 
 
 ex = ReturnSum()
-print(ex(5, 6, 7, 10))
+print(ex(5, 6, 7, 100))
+print(ex())
 
 
 # 12*. Making Your Objects Truthy or Falsey Using __bool__().

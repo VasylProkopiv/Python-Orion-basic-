@@ -23,8 +23,10 @@ class Bus(Vehicle):
     def get_seating_capacity(self):
         print(f'The bus seating capacity: {self.seating_capacity}')
 
-
+    def __str__(self):
+        return f'Max speed: {self.max_speed} m/h \nMileage: {self.mileage} miles'
 ikarus = Bus(100, 15000, 42)
+print(ikarus)
 ikarus.get_seating_capacity()
 
 # 3. Determine which class a given Bus object belongs to (Check type of an object)
@@ -103,6 +105,7 @@ new_city1 = City('city1', 500)
 print(new_city1)
 new_city2 = City('city2', 25000)
 print(new_city2)
+print(new_city2.population)
 
 
 # 9. Override a printable string representation of the City class and return: The population of the city {name} is {
@@ -167,10 +170,7 @@ class MyOrder:
         self.customer = customer
 
     def __bool__(self):
-        if len(self.cart) != 0:
-            return True
-        else:
-            return False
+        return len(self.cart) > 0
 
 
 order_1 = MyOrder(['a', 'b', 'c'], 'd')

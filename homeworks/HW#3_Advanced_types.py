@@ -18,8 +18,11 @@ print(id(lst_d))
 print(id(dict_e))
 
 # 2. Append 4 and 5 to the lst_d and define the id one more time.
-d = [4, 5]
-lst_d.append(d)
+# d = [4, 5]
+lst_d.append(4)
+lst_d.append(5)
+# i think you know better way how to do it
+# print(lst_d)
 print(id(lst_d))
 
 # 3. Define the type of each object from step 1.
@@ -143,8 +146,10 @@ print(lst_2)
 #         d[num] = num ** 2
 # print(d)
 
-lst_com3 = [num ** 2 for num in range(1, 11) if num % 2 == 1 ]
-print(lst_com3)
+
+dick_com_fix = {num: num ** 2 for num in range(1, 11) if num % 2 == 1}
+
+print(dick_com_fix)
 
 # 15*. Convert (4) to dict comprehension.
 # (4)
@@ -164,8 +169,9 @@ print(lst_com3)
 #         lst_test4.append(num // 0.5)
 # print(lst_test4)
 
-lst_com4 = [num ** 2 if num % 2 == 1 else num // 0.5 for num in range(1,11)]
-print(lst_com4)
+dickt_fix_com4 = {num: num ** 2 if num % 2 == 1 else num // 0.5 for num in range(1,11)}
+
+print(dickt_fix_com4)
 
 # 16. Convert (5) to regular for with if.
 # (5) dict_comprehension = {x: x**3 for x in range(10) if x**3 % 4 == 0}
@@ -197,17 +203,18 @@ print(dict_6)
 #     else:
 #         return y
 
-foo_lmb = lambda x, y : 'x' if x < y else 'y'
-print(foo_lmb(10,20))
+foo_lmb = lambda x, y : x if x < y else y
+
+print(foo_lmb(10,120))
 
 # 19*. Convert (8) to regular function
 # (8) foo = lambda x, y, z: z if y < x and x > z else y
 
 def foo (x, y, z):
     if y < x and x > z:
-        return 'z'
+        return z
     else:
-        return 'y'
+        return y
 
 print(foo(4,2,5))
 

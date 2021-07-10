@@ -1,7 +1,7 @@
 import dataclasses
 from collections import namedtuple
 
-
+print('task_1')
 # 1. Make the class with composition.
 class Laptop:
     def __init__(self):
@@ -23,27 +23,6 @@ print(laptop.parts[0].get_info())
 print(laptop.parts[1].get_info())
 
 
-# class Laptop:
-#     def __init__(self):
-#         self.parts = []
-#
-#     def add_battery(self, b):
-#         self.parts.append(b)
-#
-#
-# class Battery:
-#     def __init__(self, power):
-#         self.power = power
-#
-#     def get_power(self):
-#         return self.get_power()
-#
-#
-# laptop = Laptop()
-# laptop.add_battery(Battery(150))
-# laptop.add_battery(Battery(400))
-# print(laptop.parts[0].power)
-
 # 2. Make the class with aggregation
 
 class Guitar:
@@ -60,6 +39,7 @@ s2 = GuitarString(6)
 guitar = Guitar(s2)
 
 
+print('\ntask_3')
 # 3. Make class with one method "add_nums" with 3 parameters, which returns sum of these parameters.
 # Note: this method should be static
 class Calc:
@@ -73,7 +53,7 @@ class Calc:
 
 print(Calc.add_nums(6, 7, 100))
 
-
+print('\ntask_4')
 # 4*. Make class which takes 1 parameter on init - list of ingredients and defines instance attribute ingredients.
 #     It should have 2 methods:
 #     carbonara (['forcemeat', 'tomatoes']) and bolognaise (['bacon', 'parmesan', 'eggs'])
@@ -105,7 +85,7 @@ print(pasta_2.ingredients)
 pasta_3 = Pasta.carabonara()
 print(pasta_3.ingredients)
 
-
+print('\ntask_5')
 # 5*. Make class, which has max_visitors_num attribute and its instances will have visitors_count attribute.
 #     In case of setting visitors_count - max_visitors_num should be checked,
 #     if visitors_count value is bigger than max_visitors_num - visitors_count should be assigned with max_visitors_num.
@@ -171,7 +151,7 @@ print(concert2.visitors_count)
 concert2.visitors_count = 20
 print(concert2.visitors_count)
 
-
+print('\ntask_6')
 # 6. Create dataclass with 7 fields - key (int), name (str), phone_number (str), address (str),
 # email (str), birthday (str), age (int)
 
@@ -190,6 +170,7 @@ book1 = AddressBookDataClass(13, 'Boo', '+477777777', 'Address1', 'boo@gmail.com
 print(book1)
 print(book1.birthday)
 
+print('\ntask_7')
 # 7. Create the same class (6) but using NamedTuple
 AddressBookDataClass = namedtuple('AddressBookDataClass',
                                   ['key', 'name', 'phone_number', 'address', 'email', 'birthday', 'age'])
@@ -199,7 +180,7 @@ print(book2)
 print(book2[1])
 print(book2.email)
 
-
+print('\ntask_8')
 # 8. Create regular class taking 7 params on init - key, name, phone_number, address, email, birthday, age
 #    Make its str() representation the same as for AddressBookDataClass defined above.
 
@@ -222,6 +203,7 @@ book = AddressBook(13, 'Max', '+177777777', 'LA', 'max@gmail.com', '01.01.2007',
 print(book)
 
 
+print('\ntask_9')
 # 9. Change the value of the age property of the person object
 
 
@@ -236,7 +218,7 @@ setattr(person1, 'age', 38)
 new_age = getattr(person1, 'age')
 print(f' name = "John"\n age = {new_age}\n country = "USA"')
 
-
+print('\ntask_10')
 # 10. Add an 'email' attribute of the object student and set its value
 #     Assign the new attribute to 'student_email' variable and print it by using getattr
 class Student:
@@ -252,7 +234,7 @@ student = Student(13, 'Olya')
 setattr(student, 'email', f'{student.name}@gmail.com')
 print(f"My name is {student.name} and my e-mail is", getattr(student, 'email'))
 
-
+print('\ntask_11')
 # 11*. By using @property convert the celsius to fahrenheit
 #      Hint: (temperature * 1.8) + 32)
 class Celsius:

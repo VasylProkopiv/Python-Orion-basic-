@@ -82,8 +82,8 @@ class Wolf:
 grizzly = Bear
 polar_wolf = Wolf
 
-for predators in (grizzly, polar_wolf):
-    predators.make_sound('')
+for predators in (grizzly(), polar_wolf()):
+    predators.make_sound()
 
 
 # Magic methods:

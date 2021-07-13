@@ -72,26 +72,30 @@ ballu = Bear('Ballu', 100)
 for animal in (Bear, Wolf):
     animal.make_sound('')
 
+
 # Magic methods:
 # 8. Create class City with name, population instance attributes, return a new instance only when population > 1500,
 # otherwise return message: "Your city is too small".
 
 
 class City(object):
+    def __new__(cls, name, population):
+        if population > 1500:
+            return object
+        else:
+            print('Your city is too small')
 
     def __init__(self, name, population):
         self.name = name
         self.population = population
-        if population > 1500:
-            print(name, population)
-        else:
-            print('Your city is too small')
 
 
 madrid = City('Madrid', 3000000)
-kovjary = City('kovjary', 1200)
+kovjary = City('Kovjary', 1200)
+print('return > 1500', madrid)
+print('return < 1500', kovjary)
 
 
 # 9. Override a printable string representation of the City class and return: The population of the city {name} is {population}
 
-
+#

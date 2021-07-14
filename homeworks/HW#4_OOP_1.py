@@ -78,10 +78,52 @@ for animal in (Bear, Wolf):
 # otherwise return message: "Your city is too small".
 
 
-class City(object):
+# class City(object):
+#     def __new__(cls, name, population):
+#         if population > 1500:
+#             return object
+#         else:
+#             print('Your city is too small')
+#
+#     def __init__(self, name, population):
+#         self.name = name
+#         self.population = population
+#
+#
+# madrid = City('Madrid', 3000000)
+# kovjary = City('Kovjary', 1200)
+# print('return > 1500', madrid)
+# print('return < 1500', kovjary)
+#
+#
+# class City():
+#     def __new__(cls, name, population):
+#         super().__new__(cls)
+#         if population > 1500:
+#             return cls
+#         else:
+#             print('Your city is too small')
+#
+#     def __init__(self, name, population):
+#         self.name = name
+#         self.population = population
+#
+#
+# madrid = City('Madrid', 3000000)
+# kovjary = City('Kovjary', 1200)
+# print('return > 1500', madrid)
+# print('return < 1500', kovjary)
+
+
+# 9. Override a printable string representation of the City class and return: The population of the city {name} is {population}
+
+
+class City():
     def __new__(cls, name, population):
+        super().__new__(cls)
         if population > 1500:
-            return object
+            return cls
+
         else:
             print('Your city is too small')
 
@@ -89,13 +131,26 @@ class City(object):
         self.name = name
         self.population = population
 
+    def __str__(self):
+        if population > 1500:
+            print(f'The population ot the city {self.name} is {self.population}')
+
 
 madrid = City('Madrid', 3000000)
 kovjary = City('Kovjary', 1200)
-print('return > 1500', madrid)
-print('return < 1500', kovjary)
 
-
-# 9. Override a printable string representation of the City class and return: The population of the city {name} is {population}
-
+# class City(object):
+#     def __new__(cls, name, population):
+#         if population > 1500:
+#             return object
+#             # print(f'The population ot the city {self.name} is {self.population}')
+#         else:
+#             print('Your city is too small')
 #
+#     def __init__(self, name, population):
+#         self.name = name
+#         self.population = population
+#         print(f'The population ot the city {self.name} is {self.population}')
+#
+# madrid = City('Madrid', 3000000)
+# kovjary = City('Kovjary', 1200)

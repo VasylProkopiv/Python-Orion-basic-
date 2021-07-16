@@ -77,7 +77,7 @@ for animal in (Bear, Wolf):
 # 8. Create class City with name, population instance attributes, return a new instance only when population > 1500,
 # otherwise return message: "Your city is too small".
 
-
+#
 # class City(object):
 #     def __new__(cls, name, population):
 #         if population > 1500:
@@ -98,9 +98,9 @@ for animal in (Bear, Wolf):
 #
 # class City():
 #     def __new__(cls, name, population):
-#         super().__new__(cls)
+#
 #         if population > 1500:
-#             return cls
+#             return super().__new__(cls)
 #         else:
 #             print('Your city is too small')
 #
@@ -118,12 +118,10 @@ for animal in (Bear, Wolf):
 # 9. Override a printable string representation of the City class and return: The population of the city {name} is {population}
 
 
-class City():
+class City:
     def __new__(cls, name, population):
-        super().__new__(cls)
         if population > 1500:
-            return cls
-
+            return super().__new__(cls)
         else:
             print('Your city is too small')
 
@@ -132,25 +130,34 @@ class City():
         self.population = population
 
     def __str__(self):
-        if population > 1500:
-            print(f'The population ot the city {self.name} is {self.population}')
+        return f'The population ot the city {self.name} is {self.population}'
 
 
 madrid = City('Madrid', 3000000)
 kovjary = City('Kovjary', 1200)
+print(madrid)
 
-# class City(object):
+# 10*. Override magic method __add__() to perform the additional action as 'multiply' (*) the value which is greater than 10. And perform this add (+) of two instances.
+#
+# class City():
 #     def __new__(cls, name, population):
+#         super().__new__(cls)
 #         if population > 1500:
-#             return object
-#             # print(f'The population ot the city {self.name} is {self.population}')
+#             return cls
 #         else:
 #             print('Your city is too small')
 #
 #     def __init__(self, name, population):
 #         self.name = name
 #         self.population = population
-#         print(f'The population ot the city {self.name} is {self.population}')
+#
+#     def __str__(self):
+#         return (f"The population ot the city {self.name} is {self.population}").format(self=self)
+#
+#     def __mul__(self, *args, **kwargs):  # real signature unknown
+#         """ Return self*value. """
+#         pass
 #
 # madrid = City('Madrid', 3000000)
 # kovjary = City('Kovjary', 1200)
+# print(madrid)

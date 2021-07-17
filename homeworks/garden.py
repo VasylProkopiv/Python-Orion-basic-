@@ -190,8 +190,9 @@ class Gardener:
 
 
 class Pest:
-    def __init__(self, pest_type):
+    def __init__(self, quantity, pest_type):
         self.pest_type = pest_type
+        self.quantity = quantity
 
 
 tomato1 = Tomato('Slivka1', 2)

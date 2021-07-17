@@ -139,25 +139,27 @@ print(madrid)
 
 # 10*. Override magic method __add__() to perform the additional action as 'multiply' (*) the value which is greater than 10. And perform this add (+) of two instances.
 #
-# class City():
-#     def __new__(cls, name, population):
-#         super().__new__(cls)
-#         if population > 1500:
-#             return cls
-#         else:
-#             print('Your city is too small')
-#
-#     def __init__(self, name, population):
-#         self.name = name
-#         self.population = population
-#
-#     def __str__(self):
-#         return (f"The population ot the city {self.name} is {self.population}").format(self=self)
-#
-#     def __mul__(self, *args, **kwargs):  # real signature unknown
-#         """ Return self*value. """
-#         pass
-#
-# madrid = City('Madrid', 3000000)
-# kovjary = City('Kovjary', 1200)
-# print(madrid)
+class City():
+    def __new__(cls, name, population):
+        super().__new__(cls)
+        if population > 1500:
+            return cls
+        else:
+            print('Your city is too small')
+
+    def __init__(self, name, population):
+        self.name = name
+        self.population = population
+
+    def __str__(self):
+        return (f"The population ot the city {self.name} is {self.population}").format(self=self)
+
+    def __mul__(self, *args, **kwargs):  # real signature unknown
+        """ Return self*value. """
+        pass
+
+    def __mul__(self, other)
+    Умножение.
+madrid = City('Madrid', 3000000)
+kovjary = City('Kovjary', 1200)
+print(madrid)

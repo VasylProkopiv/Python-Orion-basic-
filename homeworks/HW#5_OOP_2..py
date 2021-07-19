@@ -132,16 +132,32 @@ class AddressBookDataClass:
 
 
 # 7. Create the same class (6) but using NamedTuple
+
 AddressBookDataClass = namedtuple('AddressBookDataClass',
                                   ['key', 'name', 'phone_number', 'address', 'email', 'birthday', 'age'])
+
 
 # 8.
 # class AddressBook:
 #     Create regular class taking 7 params on init - key, name, phone_number, address, email, birthday, age
 #     Make its str() representation the same as for AddressBookDataClass defined above.
 
+class AddressBook:
+    def __init__(self, key, name, phone_number, address, email, birthday, age):
+        self.key = key
+        self.name = name
+        self.phone_number = phone_number
+        self.address = address
+        self.email = email
+        self.birthday = birthday
+        self.age = age
+
+    def __str__(self):
+        return f'key = {self.key}, name = {self.name}, phone_number = {self.phone_number}, address = {self.address}, email = {self.email}, birthday = {self.birthday}, age = {self.age}'
 
 
+my_address_book = AddressBook('1', 'Vasyl', '0966035000', 'Lviv', 'media@gmail.com', '13.03.1985', 36)
+print(my_address_book)
 
 # 9.
 # class Person:
@@ -149,7 +165,16 @@ AddressBookDataClass = namedtuple('AddressBookDataClass',
 #     name = "John"
 #     age = 36
 #     country = "USA"
-#
+
+class Person:
+    name = 'John'
+    age = 36
+    country = 'USA'
+
+john = Person
+setattr(john, 'age', 26)
+print(john.age)
+
 # 10.
 # class Student:
 #     Add an 'email' attribute of the object student and set its value

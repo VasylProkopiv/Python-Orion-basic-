@@ -159,6 +159,7 @@ class AddressBook:
 my_address_book = AddressBook('1', 'Vasyl', '0966035000', 'Lviv', 'media@gmail.com', '13.03.1985', 36)
 print(my_address_book)
 
+
 # 9.
 # class Person:
 #     Change the value of the age property of the person object
@@ -171,9 +172,11 @@ class Person:
     age = 36
     country = 'USA'
 
+
 john = Person
 setattr(john, 'age', 26)
 print(john.age)
+
 
 # 10.
 # class Student:
@@ -185,7 +188,27 @@ print(john.age)
 #     def __init__(self, id, name):
 #         self.id = id
 #         self.name = name
-#
+class Student:
+    id = 0
+    name = ""
+
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+    @property
+    def student_email(self):
+        return self._student_email
+
+    @student_email.setter
+    def student_email(self, email):
+        self._student_email = email
+
+
+student = Student(13, 'Vasyl')
+student.student_email = 'www@fff.ua'
+print(student.student_email)
+
 # 11*.
 # class Celsius:
 #     By using @property convert the celsius to fahrenheit
@@ -197,3 +220,7 @@ print(john.age)
 # {obj} = ...
 #
 # print({obj}.temperature)
+
+class Celsius:
+    def __init__(self, temperature=0):
+        self._temperature = temperature

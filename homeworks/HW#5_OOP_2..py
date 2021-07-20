@@ -209,6 +209,7 @@ student = Student(13, 'Vasyl')
 student.student_email = 'www@fff.ua'
 print(student.student_email)
 
+
 # 11*.
 # class Celsius:
 #     By using @property convert the celsius to fahrenheit
@@ -224,3 +225,12 @@ print(student.student_email)
 class Celsius:
     def __init__(self, temperature=0):
         self._temperature = temperature
+
+    @property
+    def temperature_fahrenheit(self):
+        self._temperature_fahrenheit = (self._temperature * 1.8 + 32)
+        return self._temperature_fahrenheit
+
+
+tem_1 = Celsius(112)
+print(tem_1.temperature_fahrenheit)

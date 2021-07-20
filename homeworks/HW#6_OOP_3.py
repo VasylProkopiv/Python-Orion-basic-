@@ -112,14 +112,3 @@ class Tomato_Bush:
 # def all_are_ripe(self):
 #     return all([tomato.is_ripe() for tomato in self.tomatoes])
 
-
-
-
-
-
-
-
-
-
-
-

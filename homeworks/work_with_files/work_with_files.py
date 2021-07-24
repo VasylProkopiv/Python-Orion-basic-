@@ -46,7 +46,7 @@ class My_manager:
             return True
 
 
-with My_manager("test.xlsx") as file:
+with My_manager("task_3_file.xlsx") as file:
     active_sheet = file.active
     text = active_sheet.cell(row=1, column=1)
     print(active_sheet["A1"].value)

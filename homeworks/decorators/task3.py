@@ -26,3 +26,9 @@ list1 = [1, 2, '3', 4, '5', "CURSOR", '6.0', '7.1', 7.9, 9, 'END']
 print(f'The sum of all elements is {add_list(list1)}')
 
 
+
+
+
+
+
+

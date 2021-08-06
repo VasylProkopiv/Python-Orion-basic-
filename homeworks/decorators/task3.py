@@ -19,7 +19,7 @@ def decor_convert(func):
 
 @decor_convert
 def add_list(list_ex):
-    return sum(list_ex)
+    return sum(map(float, list_ex))
 
 
 list1 = [1, 2, '3', 4, '5', "CURSOR", '6.0', '7.1', 7.9, 9, 'END']

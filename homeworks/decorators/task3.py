@@ -5,9 +5,9 @@
 
 
 def decor_convert(func):
-    def wrap(ls):
+    def wrap(list_ex):
         new_list = []
-        for i in ls:
+        for i in list_ex:
             try:
                 i = float(i)
                 new_list.append(i)
@@ -24,7 +24,6 @@ def add_list(list_ex):
 
 list1 = [1, 2, '3', 4, '5', "CURSOR", '6.0', '7.1', 7.9, 9, 'END']
 print(f'The sum of all elements is {add_list(list1)}')
-
 
 
 

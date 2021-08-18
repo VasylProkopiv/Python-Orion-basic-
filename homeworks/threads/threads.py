@@ -43,7 +43,7 @@ class MyThread(Thread):
             else:
                 raise EquationError
         except EquationError:
-            logging.error("Error. The firdt ")
+            logging.error("Error. The first coefficient can not be equal to 0")
 
         logging.info("Thread %s: finishing" % self.name)
 

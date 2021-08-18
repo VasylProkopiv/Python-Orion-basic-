@@ -1,33 +1,59 @@
-# 1. Написати програму яка буде обраховувати два квадратних рівняня одночасно, всі параметри рівняння задати в змінні.
-
-import logging
-import threading
+import random
 import time
-import math
+from threading import Thread
+import logging
+from math import sqrt
 
 
-def thread_function(name, a, b, c):
-    logging.info("Thread %s: starting", name)
-    time.sleep(1)
-    logging.info(f"Thread {name}: {a} * x^2 + {b} * x + {c} = 0")
-    d = b**2 - 4*a*c
-    if d < 0:
-        logging.info("This equation has no real solution")
-    elif d == 0:
-        x = -b / (2*a)
-        logging.info(f"Thread {name}: x1 = {x}")
-    else:
-        x1 = (-b + math.sqrt((b ** 2) - (4 * (a * c)))) / (2 * a)
-        x2 = (-b - math.sqrt((b ** 2) - (4 * (a * c)))) / (2 * a)
-        logging.info(f"Thread {name}: x1 = {x1}, x2 = {x2}")
-    logging.info("Thread %s: finishing", name)
+class EquationError(Exception):
+    pass
+
+
+class MyThread(Thread):
+    def __init__(self, name, a, b, c):
+        Thread.__init__(self)
+        self.name = name
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def quadratic_equation(self):
+        logging.info(f"Thread {self.name}: {self.a} * x^2 + {self.b} * x + {self.c} = 0")
+        d = self.b ** 2 - 4 * self.a * self.c
+        if d < 0:
+            logging.info(f"This equation has no real solution")
+            return None
+        elif d == 0:
+            x = -self.b / (2 * self.a)
+            logging.info(f"Thread {self.name}: x = {x}")
+            return x
+        else:
+            x1 = (-self.b + sqrt((self.b ** 2) - (4 * (self.a * self.c)))) / (2 * self.a)
+            x2 = (-self.b - sqrt((self.b ** 2) - (4 * (self.a * self.c)))) / (2 * self.a)
+            logging.info(f"Thread {self.name}: x1 = {x1}, x2 = {x2}")
+            return x1, x2
+
+    def run(self):
+        amount = random.randint(1, 4)
+        time.sleep(amount)
+        logging.info("%s is running" % self.name)
+        try:
+            if self.a != 0:
+                self.quadratic_equation()
+            else:
+                raise EquationError
+        except EquationError:
+            logging.error("Error. The firdt ")
+
+        logging.info("Thread %s: finishing" % self.name)
 
 
 format_ = "%(asctime)s: %(message)s"
 logging.basicConfig(format=format_, level=logging.INFO, datefmt="%H:%M:%S")
-x1 = threading.Thread(target=thread_function, args=('1st', 1, -2, -3))
-x2 = threading.Thread(target=thread_function, args=('2nd', 1, 5, -6))
-x1.start()
-x2.start()
 
+thread_1 = MyThread("Thread 1", a=1, b=-2, c=-3)
+thread_2 = MyThread("Thread 2", a=1, b=5, c=-6)
+logging.info("Threads starting")
+thread_1.start()
+thread_2.start()
 

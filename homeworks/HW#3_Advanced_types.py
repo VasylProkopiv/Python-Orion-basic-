@@ -25,7 +25,15 @@ lst_d.append(5)
 # print(lst_d)
 print(id(lst_d))
 
+
+"Now i know better way too! ver. 2.0"
+d = [4, 5]
+lst_d.extend(d)
+print(id(lst_d))
+
+
 # 3. Define the type of each object from step 1.
+
 print(type(int_a))
 print(type(str_b))
 print(type(set_c))

@@ -1,0 +1,10 @@
+INFO: calculator.py: The '+' operation has been called
+INFO: calculator.py: The '-' operation has been called
+INFO: calculator.py: The '*' operation has been called
+INFO: calculator.py: The '/' operation has been called
+ERROR: calculator.py: Entered number must be a float type
+INFO: calculator.py: The '**' operation has been called
+INFO: calculator.py: The 'sqrt' operation has been called
+INFO: calculator.py: The '% of number' operation has been called
+INFO: calculator.py: The '% of number' operation has been called
+ERROR: calculator.py: Division by 0
